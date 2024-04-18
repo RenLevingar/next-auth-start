@@ -1,10 +1,18 @@
-import Image from "next/image";
+import UserInfo from "@/components/UserInfo";
+import { getServerAuthSession } from "@/server/auth";
+import Link from "next/link";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>It All Starts with This</h1>
-      <Image src={"https://res.cloudinary.com/west-mec-north-east-campus-coding/image/upload/v1713465210/NewsLetter/IMG_9190_vgbko8.jpg"} alt="georgianna" width={1000} height={1000} />
+export default async function HomePage() {
+  const authSession = await getServerAuthSession();
+
+  return (  
+    <main className="flex items-center justify-center h-screen">
+      {authSession?.user && <UserInfo user={authSession?.user} />}
+      {!authSession?.user && (
+        <Link className="font-medium mt-2 text-blue-600 hover:underline" href="/login">
+          Login
+        </Link>
+      )}
     </main>
   );
 }
