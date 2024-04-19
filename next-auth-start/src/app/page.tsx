@@ -7,12 +7,15 @@ export default async function HomePage() {
 
   return (  
     <main className="flex items-center justify-center h-screen">
-      {authSession?.user && <UserInfo user={authSession?.user} />}
+      {/* {authSession?.user && <UserInfo user={authSession?.user} />} */}
       {!authSession?.user && (
         <Link className="font-medium mt-2 text-blue-600 hover:underline" href="/login">
           Login
         </Link>
       )}
+      <Link className="font-medium mt-2 text-blue-600 hover:underline" href="/login">
+          Login
+      </Link>
     </main>
   );
 }

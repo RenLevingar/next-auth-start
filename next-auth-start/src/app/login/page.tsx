@@ -1,5 +1,6 @@
 "use client";
 import { signIn } from "next-auth/react";
+import { redirect } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 type LoginInput = {
@@ -25,7 +26,8 @@ export default function LoginPage({searchParams}: PageProps) {
     await signIn("credentials", { 
       username: inputs.username, 
       password: inputs.password, 
-      callbackUrl: '/' });
+      callbackUrl: '/profile' }),
+      redirect('/profile')
   }
   return (
     <>

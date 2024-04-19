@@ -14,7 +14,7 @@ export const authOptions: NextAuthOptions = {
             console.log("----------------JWT----------------")
             console.log({token}, {account}, {profile})
             if(account && account.type === 'credentials'){
-                token.userID = account.providerAccountId
+                token.userId = account.providerAccountId
                 // This Id that is coming from authorize() callback
             }
             return token;
@@ -27,9 +27,13 @@ export const authOptions: NextAuthOptions = {
             session.user.id = token.userId
             return session
         },
+        async redirect({ url, baseUrl }) {
+            return baseUrl
+          },
     },
     pages:{
         signIn: '/login', //custom sign in path
+        signOut: '/',
         /*
         signOut: '/path',
         error: '/error',
