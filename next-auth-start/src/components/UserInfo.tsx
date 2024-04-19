@@ -9,7 +9,7 @@ type UserInfoProps = {
 
 export default function UserInfo({ user }: UserInfoProps) {
   const handleLogout = async () => {
-    await signOut();
+    await signOut( { callbackUrl: '/' });
   }
 
   return(

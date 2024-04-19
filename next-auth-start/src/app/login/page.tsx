@@ -26,8 +26,7 @@ export default function LoginPage({searchParams}: PageProps) {
     await signIn("credentials", { 
       username: inputs.username, 
       password: inputs.password, 
-      callbackUrl: '/profile' }),
-      redirect('/profile')
+      callbackUrl: '/profile' })
   }
   return (
     <>

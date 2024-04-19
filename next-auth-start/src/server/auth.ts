@@ -27,13 +27,13 @@ export const authOptions: NextAuthOptions = {
             session.user.id = token.userId
             return session
         },
-        async redirect({ url, baseUrl }) {
-            return baseUrl
-          },
+        // async redirect({ url, baseUrl }) {
+        //     return baseUrl
+        //   },
     },
     pages:{
         signIn: '/login', //custom sign in path
-        signOut: '/',
+        signOut: '/'
         /*
         signOut: '/path',
         error: '/error',
