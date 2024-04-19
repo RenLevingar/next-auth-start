@@ -6,7 +6,7 @@ export default async function Profile() {
   const authSession = await getServerAuthSession();
 
   if (!authSession?.user) {
-    redirect('/');
+    redirect('/login');
     return null;
   }
 
